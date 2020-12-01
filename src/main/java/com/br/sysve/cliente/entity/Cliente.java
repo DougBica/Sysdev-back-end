@@ -18,9 +18,7 @@ import lombok.Data;
 @Table(name="cliente")
 @Data
 public class Cliente extends CadastroGenerico{
-	@Id 
-	@GeneratedValue(strategy= GenerationType.SEQUENCE)
-	private Long id;
+
 	private String nome;
 	private LocalDate dataNascimento;
 	private String cpf;
