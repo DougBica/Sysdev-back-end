@@ -14,20 +14,10 @@ public class ProdutoDto {
 	private Long id;
 	private String nome;
 	private BigDecimal quantidadeEmbalagem;
+	private BigDecimal valorVenda;
 	private Long codigoBarra;
 	private String caminhoImagem;
 	private Unidade unidade;
 	private Boolean ativo;
-	
-	
-	public ProdutoDto() {};
-	public ProdutoDto(Long id,String nome,BigDecimal quantidadeEmbalagem,Long codigoBarra,String caminhoImagem,Unidade unidade) {
-		this.id = id;
-		this.nome = nome;
-		this.quantidadeEmbalagem = quantidadeEmbalagem;
-		this.codigoBarra = codigoBarra;
-		this.caminhoImagem = caminhoImagem;
-		this.unidade = new Unidade();
-	}
 
 }
