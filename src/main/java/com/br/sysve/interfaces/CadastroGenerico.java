@@ -1,6 +1,5 @@
 package com.br.sysve.interfaces;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -25,17 +24,6 @@ public class CadastroGenerico{
 	private LocalDate dataEdicao;
 	private Long usuarioEdicao;
 	private Integer versao;
-	private boolean ativo;
+	private Boolean ativo;
 	
-//	private CadastroGenerico() {
-//		if (this.uuid == null) {
-//			this.uuid = UUID.randomUUID();
-//		}
-//		if (this.dataCadastro == null) {
-//			this.dataCadastro = LocalDate.now();
-//		}
-//		if (this.dataEdicao == null) {
-//			this.dataEdicao = LocalDate.now();
-//		}
-//	}
 }

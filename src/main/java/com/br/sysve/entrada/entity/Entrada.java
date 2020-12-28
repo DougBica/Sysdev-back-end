@@ -18,12 +18,12 @@ import lombok.Data;
 @Data
 public class Entrada extends CadastroGenerico{
 	
-	@ManyToMany
-	private Produto produto;
-	private BigDecimal valorTotal;
-	private TipoEntrada tipoEntrada;
-	private StatusEntrada statusEntrada;
-	
+//	@ManyToMany
+//	private Produto produto;
+//	private BigDecimal valorTotal;
+//	private TipoEntrada tipoEntrada;
+//	private StatusEntrada statusEntrada;
+//	
 	
 	
 
