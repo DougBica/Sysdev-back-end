@@ -14,8 +14,11 @@ import com.br.sysve.dtos.ProdutoDto;
 import com.br.sysve.entrada_produto.EntradaProduto;
 import com.br.sysve.interfaces.CadastroGenerico;
 import com.br.sysve.saida_produto.entity.SaidaProduto;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Table(name="produto")
@@ -28,9 +31,14 @@ public class Produto extends CadastroGenerico{
 	private Long codigoBarra;
 	private String caminhoImagem;
 	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "produto")
+	@JsonManagedReference
 	private Set<EntradaProduto> entradaProdutos;
 	
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "produto")
 	private Set<SaidaProduto> saidasProdutos; 
 	
@@ -39,6 +47,13 @@ public class Produto extends CadastroGenerico{
 	
 	public Produto() {
 		super();
+	}
+	
+	public Set<EntradaProduto> getEntradaProdutos(){
+		return this.entradaProdutos;
+	}
+	public Set<SaidaProduto> getSaidaProdutos(){
+		return this.saidasProdutos;
 	}
 	
 	public static Produto dtoToClass(ProdutoDto produtoDto, Produto prod) {

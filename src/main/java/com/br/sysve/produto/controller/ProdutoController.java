@@ -32,8 +32,7 @@ public class ProdutoController {
 	
 	@GetMapping("/produto/{id}")
 	public ResponseEntity<Produto> getProduto(@PathVariable(value="id") Long id) throws ResourceNotFoundException{
-		return ResponseEntity.ok().body(produtoService.getOne(id));
-		
+		return ResponseEntity.ok().body(produtoService.getOne(id));		
 	}
 	
 	@PostMapping("/produto")
