@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import com.br.sysve.dtos.EntradaDto;
 import com.br.sysve.entrada.entity.enumerator.StatusEntrada;
 import com.br.sysve.entrada.entity.enumerator.TipoEntrada;
-import com.br.sysve.entrada_produto.EntradaProduto;
+import com.br.sysve.entrada_produto.entity.EntradaProduto;
 import com.br.sysve.interfaces.CadastroGenerico;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -28,7 +28,6 @@ public class Entrada extends CadastroGenerico{
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
-	@JsonManagedReference
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name = "entrada")
 	private Set<EntradaProduto> entradaProdutos;

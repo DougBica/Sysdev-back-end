@@ -1,6 +1,5 @@
 package com.br.sysve.entrada.service;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -12,7 +11,7 @@ import com.br.sysve.dtos.EntradaDto;
 import com.br.sysve.dtos.EntradaProdutoDto;
 import com.br.sysve.entrada.entity.Entrada;
 import com.br.sysve.entrada.repository.EntradaRepository;
-import com.br.sysve.entrada_produto.EntradaProduto;
+import com.br.sysve.entrada_produto.entity.EntradaProduto;
 import com.br.sysve.exception.ResourceNotFoundException;
 import com.br.sysve.produto.entity.Produto;
 import com.br.sysve.produto.repository.ProdutoRepository;

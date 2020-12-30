@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.br.sysve.dtos.ProdutoDto;
+import com.br.sysve.exception.ResourceNeedBeUniqueException;
 import com.br.sysve.exception.ResourceNotFoundException;
 import com.br.sysve.produto.entity.Produto;
 import com.br.sysve.produto.service.ProdutoService;
@@ -36,7 +37,12 @@ public class ProdutoController {
 	}
 	
 	@PostMapping("/produto")
-	public ResponseEntity<Produto> criarProduto(@Validated @RequestBody ProdutoDto produtoDto) throws ResourceNotFoundException{
+	public ResponseEntity<Produto> criarProduto(@Validated @RequestBody ProdutoDto produtoDto) throws ResourceNotFoundException, ResourceNeedBeUniqueException{
 		return ResponseEntity.ok().body(produtoService.criarEditarProduto(produtoDto));		
+	}
+	
+	@PostMapping("/codigo-produto")
+	public ResponseEntity<Produto> getProdutoByCodigoBarra(@Validated @RequestBody ProdutoDto produtoDto) throws ResourceNotFoundException{
+		return ResponseEntity.ok().body(produtoService.findByCodigoBarra(produtoDto));		
 	}
 }

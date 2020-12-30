@@ -10,7 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
-import javassist.bytecode.stackmap.TypeData.UninitThis;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import lombok.Data;
 
 @Entity
@@ -22,6 +23,8 @@ public class CadastroGenerico{
 	private Long id;
 	private UUID uuid;
 	private LocalDate dataCadastro;
+	
+	@LastModifiedDate
 	private LocalDate dataEdicao;
 	private Long usuarioEdicao;
 	private Integer versao = 0;

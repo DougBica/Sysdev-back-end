@@ -11,9 +11,10 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.br.sysve.dtos.ProdutoDto;
-import com.br.sysve.entrada_produto.EntradaProduto;
+import com.br.sysve.entrada_produto.entity.EntradaProduto;
 import com.br.sysve.interfaces.CadastroGenerico;
 import com.br.sysve.saida_produto.entity.SaidaProduto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
@@ -34,12 +35,13 @@ public class Produto extends CadastroGenerico{
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "produto")
-	@JsonManagedReference
+	@JsonIgnore
 	private Set<EntradaProduto> entradaProdutos;
 	
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "produto")
+	@JsonIgnore
 	private Set<SaidaProduto> saidasProdutos; 
 	
 	@OneToOne(fetch = FetchType.EAGER)
@@ -47,13 +49,6 @@ public class Produto extends CadastroGenerico{
 	
 	public Produto() {
 		super();
-	}
-	
-	public Set<EntradaProduto> getEntradaProdutos(){
-		return this.entradaProdutos;
-	}
-	public Set<SaidaProduto> getSaidaProdutos(){
-		return this.saidasProdutos;
 	}
 	
 	public static Produto dtoToClass(ProdutoDto produtoDto, Produto prod) {
