@@ -1,33 +1,19 @@
 package br.com.sysve.entity;
 
+import br.com.sysve.entities.BasicEntity;
+import br.com.sysve.entrada.entity.Entrada;
+
+import javax.persistence.*;
 import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
-import br.com.sysve.entrada.entity.Entrada;
-import br.com.sysve.produto.entity.Produto;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.Data;
-
-@Entity
 @Table(name="entrada_produto")
-@Data
-public class EntradaProduto {
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long id;
+public class EntradaProduto extends BasicEntity {
+
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Produto produto;
-	
-	@JsonIgnore
+//	@ManyToOne(cascade = CascadeType.ALL)
+//	private ProductDto produto;
+
     @ManyToOne(cascade = CascadeType.ALL)
 	private Entrada entrada;
 	

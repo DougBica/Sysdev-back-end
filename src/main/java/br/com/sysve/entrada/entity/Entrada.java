@@ -1,35 +1,28 @@
 package br.com.sysve.entrada.entity;
 
+import br.com.sysve.dtos.EntradaDto;
+import br.com.sysve.entity.EntradaProduto;
+import br.com.sysve.entrada.entity.enumerator.StatusEntrada;
+import br.com.sysve.entrada.entity.enumerator.TipoEntrada;
+import br.com.sysve.interfaces.CadastroGenerico;
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-
-import br.com.sysve.dtos.EntradaDto;
-import br.com.sysve.entrada.entity.enumerator.StatusEntrada;
-import br.com.sysve.entrada.entity.enumerator.TipoEntrada;
-import br.com.sysve.entity.EntradaProduto;
-import br.com.sysve.interfaces.CadastroGenerico;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 @Entity
 @Table(name="entrada")
 @Data
 public class Entrada extends CadastroGenerico{
 	
-	@ToString.Exclude
-	@EqualsAndHashCode.Exclude
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "entrada")
-	private Set<EntradaProduto> entradaProdutos;
+//	@ToString.Exclude
+//	@EqualsAndHashCode.Exclude
+//	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "entrada")
+//	private Set<EntradaProduto> entradaProdutos;
 	private BigDecimal valorTotal;
 	private BigDecimal desconto;
 	private LocalDate dataEntrada;	
@@ -38,7 +31,7 @@ public class Entrada extends CadastroGenerico{
 	
 	
 	public static Entrada dtoToClass(EntradaDto entradaDto, Entrada ent, Set<EntradaProduto> listaEntradaProduto) {	
-		ent.setEntradaProdutos(listaEntradaProduto);
+//		ent.setEntradaProdutos(listaEntradaProduto);
 		ent.setValorTotal(entradaDto.getValorTotal());
 		ent.setDesconto(entradaDto.getDesconto());
 		ent.setAtivo(entradaDto.getAtivo());
