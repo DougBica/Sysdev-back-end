@@ -1,4 +1,4 @@
-package br.com.sysve.produto.entity;
+package br.com.sysve.produto.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
